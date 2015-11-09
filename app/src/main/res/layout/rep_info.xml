@@ -50,10 +50,10 @@
         android:id="@+id/repBirthday"
         android:textSize="15sp"
         android:textColor="@android:color/white"
-        android:layout_below="@+id/repName"
-        android:layout_toRightOf="@+id/repGender"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"/>
+        android:layout_below="@+id/repGender"
+        android:layout_alignLeft="@+id/repGender"
+        android:layout_alignStart="@+id/repGender"
+        android:layout_marginTop="27dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,8 +62,20 @@
         android:text="Phone"
         android:id="@+id/repPhone"
         android:textColor="@android:color/white"
-        android:layout_alignBottom="@+id/repBirthday"
-        android:layout_toLeftOf="@+id/repParty"
-        android:layout_toStartOf="@+id/repParty"/>
+        android:layout_above="@+id/repBirthday"
+        android:layout_toRightOf="@+id/repName"
+        android:layout_toEndOf="@+id/repName"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Address"
+        android:id="@+id/repOffice"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:layout_alignTop="@+id/repBirthday"
+        android:layout_alignLeft="@+id/repPhone"
+        android:layout_alignStart="@+id/repPhone"/>
 
 </RelativeLayout>

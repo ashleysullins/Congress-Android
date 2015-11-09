@@ -7,6 +7,7 @@ public class Representative {
     private String mGender;
     private String mBirthday;
     private String mPhone;
+    private String mOffice;
 
     public Representative() {
     }
@@ -49,6 +50,14 @@ public class Representative {
 
     public String getPhone() {
         return mPhone;
+    }
+
+    public void setOffice(String office) {
+        mOffice = office;
+    }
+
+    public String getOffice() {
+        return mOffice;
     }
 
 //    public int getAge() {

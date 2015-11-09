@@ -14,7 +14,11 @@ import android.widget.TextView;
 import com.epicodus.knowyourcongressmen.R;
 import com.epicodus.knowyourcongressmen.models.Representative;
 
+import org.w3c.dom.Text;
+
+import java.net.URI;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class RepAdapter extends BaseAdapter{
     private Context mContext;
@@ -53,6 +57,7 @@ public class RepAdapter extends BaseAdapter{
             holder.mRepGender = (TextView) convertView.findViewById(R.id.repGender);
             holder.mRepBirthday = (TextView) convertView.findViewById(R.id.repBirthday);
             holder.mRepPhone = (TextView) convertView.findViewById(R.id.repPhone);
+            holder.mRepOffice = (TextView) convertView.findViewById(R.id.repOffice);
 
             convertView.setTag(holder);
         } else {
@@ -66,11 +71,23 @@ public class RepAdapter extends BaseAdapter{
         holder.mRepGender.setText(rep.getGender());
         holder.mRepBirthday.setText(rep.getBirthday());
         holder.mRepPhone.setText(rep.getPhone());
+        holder.mRepOffice.setText(rep.getOffice());
+
         holder.mRepPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:"+rep.getPhone()));
+                intent.setData(Uri.parse("tel:" + rep.getPhone()));
+                mContext.startActivity(intent);
+            }
+        });
+
+        holder.mRepOffice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String uri = String.format(Locale.ENGLISH, "geo:0,0?q=" + rep.getOffice());
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
                 mContext.startActivity(intent);
             }
         });
@@ -93,5 +110,6 @@ public class RepAdapter extends BaseAdapter{
         TextView mRepGender;
         TextView mRepParty;
         TextView mRepPhone;
+        TextView mRepOffice;
     }
 }
