@@ -55,4 +55,15 @@
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Phone"
+        android:id="@+id/repPhone"
+        android:textColor="@android:color/white"
+        android:layout_alignBottom="@+id/repBirthday"
+        android:layout_toLeftOf="@+id/repParty"
+        android:layout_toStartOf="@+id/repParty"/>
+
 </RelativeLayout>

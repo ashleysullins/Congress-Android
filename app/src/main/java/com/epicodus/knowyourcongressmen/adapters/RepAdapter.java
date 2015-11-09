@@ -1,7 +1,9 @@
 package com.epicodus.knowyourcongressmen.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +52,7 @@ public class RepAdapter extends BaseAdapter{
             holder.mRepParty = (TextView) convertView.findViewById(R.id.repParty);
             holder.mRepGender = (TextView) convertView.findViewById(R.id.repGender);
             holder.mRepBirthday = (TextView) convertView.findViewById(R.id.repBirthday);
+            holder.mRepPhone = (TextView) convertView.findViewById(R.id.repPhone);
 
             convertView.setTag(holder);
         } else {
@@ -62,6 +65,15 @@ public class RepAdapter extends BaseAdapter{
         holder.mRepParty.setText(rep.getParty());
         holder.mRepGender.setText(rep.getGender());
         holder.mRepBirthday.setText(rep.getBirthday());
+        holder.mRepPhone.setText(rep.getPhone());
+        holder.mRepPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:"+rep.getPhone()));
+                mContext.startActivity(intent);
+            }
+        });
 
         if (rep.getParty().equals("D")) {
             holder.mRepLayout.setBackgroundColor(Color.parseColor("#800099FF"));
@@ -80,5 +92,6 @@ public class RepAdapter extends BaseAdapter{
         TextView mRepBirthday;
         TextView mRepGender;
         TextView mRepParty;
+        TextView mRepPhone;
     }
 }

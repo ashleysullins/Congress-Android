@@ -6,6 +6,7 @@ public class Representative {
     private String mParty;
     private String mGender;
     private String mBirthday;
+    private String mPhone;
 
     public Representative() {
     }
@@ -40,6 +41,14 @@ public class Representative {
 
     public void setBirthday(String birthday) {
         mBirthday = birthday;
+    }
+
+    public void setPhone(String phone) {
+        mPhone = phone;
+    }
+
+    public String getPhone() {
+        return mPhone;
     }
 
 //    public int getAge() {
